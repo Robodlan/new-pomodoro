@@ -4,26 +4,25 @@ const addWork = document.getElementById('add-work')
 const addBreak = document.getElementById('add-break')
 const inputValue = document.getElementById('input-value')
 let currentLabel = document.getElementById('timer-label')
+
 let timeOut
 let isRunning = false
-let plusTime = 1
-
-let workTime =  `${plusTime}` * 60
+let plusTime = 25
+let workTime =  25 * 60
 let breakTime = 3 * 60
 let currentTime = workTime
 
-inputValue.addEventListener('click', ()=> {
-      workTime =  plusTime++ * 60
-      currentTime = workTime
-      displayUpdate()
-    
-})
-    
+console.log(  plusTime)
+
+inputValue.addEventListener('click', add)
+function add() {
+    plusTime+=1
+    // return plusTime
+    workTime = `${plusTime}` * 60
+    currentTime = workTime
+    document.getElementById('time-left').textContent = makingTime(currentTime)
     console.log(plusTime)
-
-
-
-
+}
 
 
 function makingTime(seconds) {
