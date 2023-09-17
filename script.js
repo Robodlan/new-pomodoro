@@ -1,8 +1,8 @@
 const sesionValue = document.getElementById('sesion-value')
 const startStop = document.getElementById('start-stop')
-const addWork = document.getElementById('add-work')
 const addBreak = document.getElementById('add-break')
-const inputValue = document.getElementById('input-value')
+const addWork = document.getElementById('add-work')
+const  lessWork = document.getElementById('less-work')
 let currentLabel = document.getElementById('timer-label')
 
 let timeOut
@@ -12,9 +12,11 @@ let workTime =  25 * 60
 let breakTime = 3 * 60
 let currentTime = workTime
 
-console.log(  plusTime)
+// console.log(  plusTime)
 
-inputValue.addEventListener('click', add)
+addWork.addEventListener('click', add)
+lessWork.addEventListener('click', less)
+
 function add() {
     plusTime+=1
     // return plusTime
@@ -22,6 +24,13 @@ function add() {
     currentTime = workTime
     document.getElementById('time-left').textContent = makingTime(currentTime)
     console.log(plusTime)
+}
+
+function less() {
+    plusTime-=1
+    workTime = `${plusTime}` * 60
+    currentTime = workTime
+    document.getElementById('time-left').textContent = makingTime(currentTime)
 }
 
 
@@ -73,6 +82,7 @@ function toggleTimer() {
  function reset() {
     clearInterval(timeOut)
     isRunning = false
+    workTime =  25 * 60
     currentTime = workTime
     document.getElementById('start-stop').innerHTML = 'Work'
     displayUpdate()
