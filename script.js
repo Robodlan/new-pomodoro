@@ -1,3 +1,4 @@
+const timeLeft = document.getElementById('time-left')
 const sesionValue = document.getElementById('sesion-value')
 const startStop = document.getElementById('start-stop')
 const addBreak = document.getElementById('add-break')
@@ -22,15 +23,14 @@ function add() {
     // return plusTime
     workTime = `${plusTime}` * 60
     currentTime = workTime
-    document.getElementById('time-left').textContent = makingTime(currentTime)
-    console.log(plusTime)
+    timeLeft.textContent = makingTime(currentTime)
 }
 
 function less() {
     plusTime-=1
     workTime = `${plusTime}` * 60
     currentTime = workTime
-    document.getElementById('time-left').textContent = makingTime(currentTime)
+    timeLeft.textContent = makingTime(currentTime)
 }
 
 
@@ -43,7 +43,7 @@ function makingTime(seconds) {
 }
 
 function displayUpdate() {
-    document.getElementById('time-left').textContent = makingTime(currentTime)
+    timeLeft.textContent = makingTime(currentTime)
     // currentLabel.innerHTML = 'Work'
 }
 
