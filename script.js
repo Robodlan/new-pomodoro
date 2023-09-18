@@ -12,7 +12,7 @@ let timeOut
 let isRunning = false
 let breakPLus = 5
 let plusTime = 25
-let workTime =  25 * 60
+let workTime =  2 * 60
 let breakTime = 5 * 60
 let currentTime = workTime
 
@@ -86,10 +86,15 @@ function toggleTimer() {
         
     }  else {
         if (currentLabel.innerHTML = 'Work') {
+            workTime = 0
+            breakTime--
             currentTime = breakTime
-            currentTime--
+            // currentTime--
             currentLabel.innerHTML = 'Break'
-            displayUpdate() }
+            // timeLeft.textContent = 25S
+            timeBreak.innerHTML = makingTime(currentTime)
+            // displayUpdate()
+         }
         // } else {
         //     currentLabel = 'Work'
         //     currentTime = workTime
