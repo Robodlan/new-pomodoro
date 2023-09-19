@@ -3,22 +3,32 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Karla:wght@200;300;400;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
         <title>New Pomodoro</title>
     </head>
 <body>
-     <div class="timer">
-        <div id="timer-label">Work</div>
-        <div id="time-left">25:00</div>
-        <div id="time-break">5:00</div>
-        <button id="start-stop">Start</button>
-        <button id="reset">Reset</button>
-        <button id="add-work">Add + 1</button>
-        <!-- <input type="number" id="add-work" placeholder="1+ Work" /> -->
-        <button type="button" id="less-work">Minus - 1</button>
-        <button type="button" id="add-break">Break + 1</button>
-        <button type="button" id="less-break">Break - 1</button>
-     </div>
+    <main>
+        <div class="timer">
+           <div class="title"  id="timer-label">Work</div>
+           <div class="title" id="time-left">25:00</div>
+           <!-- <div id="time-break">5:00</div> -->
+           <button id="start-stop">Start</button>
+           <button id="reset">Reset</button>
+           <button id="work">Work</button>
+           <button id="short-break">Short Break</button>
+           <button id="long-break">Long Break</button>
+           <!-- <button id="add-work">Add + 1</button> -->
+           <!-- <button type="button" id="less-work">Minus - 1</button> -->
+           <!-- <button type="button" id="add-break">Break + 1</button> -->
+           <!-- <button type="button" id="less-break">Break - 1</button> -->
+           <h3>Develop by: Reinaldo Robles</h3>
+        </div>
+
+
+    </main>
 
     <script src="script.js"></script>
 </body>
