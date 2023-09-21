@@ -1,31 +1,44 @@
-// const sesionValue = document.getElementById('sesion-value')
-// const timeBreak = document.getElementById('time-break')
-// const addBreak = document.getElementById('add-break')
-// const lessBreak = document.getElementById('less-break')
-// const  lessWork = document.getElementById('less-work')
-
 const timeLeft = document.getElementById('time-left')
-const showWork = document.getElementById('work')
+// const showWork = document.getElementById('work')
 const startStop = document.getElementById('start-stop')
-// const addWork = document.getElementById('add-work')
-const shortBreak = document.getElementById('short-break')
-// const longBreak = document.getElementById('long-break')
+const addWorkInput = document.getElementById('add-work')
+const addBreakInput = document.getElementById('add-break')
 let currentLabel = document.getElementById('timer-label')
 let audio = new Audio('click.mp3')
 let lastAlert = new Audio('chimes.mp3')
 
 let timeOut
 let isRunning = true
-let workTime =  1 * 60
-let breakTime = 2 * 60
-// let currentTime = workTime
+let add = 1 * 60
+let workMinutes = 25
+let workSeconds = 60
+let breakMinutes = 5
+let breakSeconds = 60
+let workTime =  `${workMinutes}` * `${workSeconds}`
+let breakTime = `${breakMinutes}` * `${breakSeconds}`
+
+function addWork(){
+   workMinutes += 1 
+   addWorkInput.value = workMinutes
+   workTime =  `${workMinutes}` * `${workSeconds}`
+   timeLeft.textContent = formatTime(workTime)
+   console.log(workTime)
+}
+
+function addBreak(){
+   breakMinutes += 1
+   addBreakInput.value = breakMinutes
+   breakTime = `${breakMinutes}` * `${breakSeconds}`
+   timeLeft.textContent = formatTime(isRunning ? workTime : breakTime)
+}
 
 
 function toggleTimer() {
+  addWorkInput.value = ''
     audio.play()
     if (!timeOut) {
-        timeOut = setInterval(updateTime, 100)
-        startStop.innerHTML = 'Start'
+        timeOut = setInterval(updateTime, 10)
+        startStop.innerHTML = 'Pause'
     } else {
         clearInterval(timeOut)
         timeOut = null
@@ -37,51 +50,48 @@ function toggleTimer() {
     audio.play()
     clearInterval(timeOut)
     timeOut = null
-   if (isRunning) {
+    workTime = 25 * 60
     timeLeft.textContent = '25:00'
-   } else {
-    timeLeft.textContent = '05:00'
-   }
-   startStop.innerHTML = 'Start'
+    startStop.innerHTML = 'Start'
 }
 
  function updateTime() {
-   if (workTime === 0 && breakTime === 0) {
-        alertSound()
-        reset()
-        isRunning = !isRunning
-        if (isRunning && workTime > 0) {
-            timeLeft.textContent = '25:00'
-        } else {
-            timeLeft.textContent = '05:00'
-        }
-    } 
-      else {
-      if (isRunning && workTime > 0){
-        workTime--
-      } else  {
-          breakTime--
-          currentLabel.innerHTML = 'Break'
-        }
-    
-      timeLeft.textContent = timeDisplay(isRunning ? workTime : breakTime)
-   }
-   function timeDisplay(time) {
-    const minutes = Math.floor(isRunning ? workTime / 60 : breakTime / 60)
-    const seconds = isRunning ? workTime % 60 : breakTime % 60
-    const minutesFormat = `${minutes.toString().padStart(2, '0')}`
-    const  secondsFormat = `${seconds.toString().padStart(2, '0')}`
-    return `${minutesFormat} : ${secondsFormat}`
-}
+  if (isRunning) {
+    workTime--
+    if (workTime < 0) {
+      isRunning = false
+      currentLabel.innerHTML = 'Break'
+      timeLeft.textContent = formatTime(breakTime)
+    }
+  } else {
+    breakTime--
+    if (breakTime <= 0){
+      isRunning = false
+      currentLabel.innerHTML = 'Done!'
+      startStop.innerHTML = 'Start'
+      timeLeft.textContent = formatTime(workTime)
+      clearInterval(timeOut)
+      lastAlert.play()
+    }
+  }
+  timeLeft.textContent = formatTime(isRunning ? workTime : breakTime)
+  document.title = `${formatTime(isRunning ? workTime : breakTime)} ${'🍅'}`
 }  
 
-
-function alertSound() {
-  lastAlert.play()
+function formatTime(seconds) {
+  const minutes = Math.floor(seconds / 60)
+  const remainingSeconds = seconds % 60
+  return `${minutes.toString().padStart(2, '0')} : ${remainingSeconds.toString().padStart(2, '0')}`
 }
- 
-
 
  document.getElementById('start-stop').addEventListener('click', toggleTimer)
  document.getElementById('reset').addEventListener('click', reset)
+ document.getElementById('add-work-btn').addEventListener('click', addWork)
+ document.getElementById('add-break-btn').addEventListener('click', addBreak)
+
+
+ 
+ 
+ 
+
 
