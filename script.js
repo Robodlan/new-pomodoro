@@ -1,5 +1,4 @@
 const timeLeft = document.getElementById('time-left')
-// const showWork = document.getElementById('work')
 const startStop = document.getElementById('start-stop')
 const addWorkInput = document.getElementById('add-work')
 const addBreakInput = document.getElementById('add-break')
