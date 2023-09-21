@@ -17,26 +17,44 @@ let workTime =  `${workMinutes}` * `${workSeconds}`
 let breakTime = `${breakMinutes}` * `${breakSeconds}`
 
 function addWork(){
+  currentLabel.innerHTML = "Work"
    workMinutes += 1 
    addWorkInput.value = workMinutes
    workTime =  `${workMinutes}` * `${workSeconds}`
    timeLeft.textContent = formatTime(workTime)
-   console.log(workTime)
+}
+
+function lessWork() {
+  currentLabel.innerHTML = "Work"
+  workMinutes -= 1
+  addWorkInput.value = workMinutes
+  workTime =  `${workMinutes}` * `${workSeconds}`
+  timeLeft.textContent = formatTime(workTime)
 }
 
 function addBreak(){
+  currentLabel.innerHTML = "Break"
    breakMinutes += 1
    addBreakInput.value = breakMinutes
    breakTime = `${breakMinutes}` * `${breakSeconds}`
-   timeLeft.textContent = formatTime(isRunning ? workTime : breakTime)
+  
+}
+
+function lessBreak() {
+  currentLabel.innerHTML = "Break"
+  breakMinutes -= 1
+  addBreakInput.value = breakMinutes
+  breakTime = `${breakMinutes}` * `${breakSeconds}`
+  
 }
 
 
 function toggleTimer() {
   addWorkInput.value = ''
+  addBreakInput.value = ''
     audio.play()
     if (!timeOut) {
-        timeOut = setInterval(updateTime, 10)
+        timeOut = setInterval(updateTime, 1000)
         startStop.innerHTML = 'Pause'
     } else {
         clearInterval(timeOut)
@@ -86,7 +104,9 @@ function formatTime(seconds) {
  document.getElementById('start-stop').addEventListener('click', toggleTimer)
  document.getElementById('reset').addEventListener('click', reset)
  document.getElementById('add-work-btn').addEventListener('click', addWork)
+ document.getElementById('less-work-btn').addEventListener('click', lessWork)
  document.getElementById('add-break-btn').addEventListener('click', addBreak)
+ document.getElementById('less-break-btn').addEventListener('click', lessBreak)
 
 
  
