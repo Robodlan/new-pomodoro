@@ -22,7 +22,7 @@ let breakTime = 2 * 60
 
 
 function toggleTimer() {
-    // audio.play()
+    audio.play()
     if (!timeOut) {
         timeOut = setInterval(updateTime, 100)
         startStop.innerHTML = 'Start'
@@ -60,16 +60,21 @@ function toggleTimer() {
       if (isRunning && workTime > 0){
         workTime--
       } else  {
-          timeLeft.textContent = breakTime--
           breakTime--
           currentLabel.innerHTML = 'Break'
-          console.log(breakTime)
-    }
-      const minutes = Math.floor(isRunning ? workTime / 60 : breakTime / 60)
-      const seconds = isRunning ? workTime % 60 : breakTime % 60
-      timeLeft.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
+        }
+    
+      timeLeft.textContent = timeDisplay(isRunning ? workTime : breakTime)
    }
+   function timeDisplay(time) {
+    const minutes = Math.floor(isRunning ? workTime / 60 : breakTime / 60)
+    const seconds = isRunning ? workTime % 60 : breakTime % 60
+    const minutesFormat = `${minutes.toString().padStart(2, '0')}`
+    const  secondsFormat = `${seconds.toString().padStart(2, '0')}`
+    return `${minutesFormat} : ${secondsFormat}`
+}
 }  
+
 
 function alertSound() {
   lastAlert.play()
