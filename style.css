@@ -4,8 +4,9 @@
 
 body {
     margin: 0;
+    padding: 0;
     background-color: #fff;
-    /* font-family: 'Karla', sans-serif; */
+    /* background-color: orange; */
     font-family: Neucha, sans-serif;
 }
 
@@ -18,11 +19,13 @@ main {
    display: flex;
    justify-content: center;
    align-items: center;
-}
+   margin: 3em;
+  }
 
 .timer {
+    max-width: 500px;
     margin: 2em;
-    width: 50%;
+    width: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,7 +43,7 @@ main {
 
 
 /* CSS */
-.button-55, input {
+.button-55{
   align-self: center;
   background-color: #fff;
   background-image: none;
@@ -81,11 +84,34 @@ main {
 }
 
 input {
+  align-self: center;
+  background-image: none;
+  background-position: 0 90%;
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: #41403e;
+  display: inline-block;
+  font-family: Neucha, sans-serif;
+  font-size: 1rem;
+  /* line-height: 23px; */
+  outline: none;
   padding: .75rem;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
   text-align: center;
 }
-
-
 
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
@@ -93,4 +119,25 @@ input[type=number]::-webkit-outer-spin-button {
     -moz-appearance: none;
     appearance: none;
     margin: 0; 
+}
+
+@media screen and (max-width: 480px){
+  .title {
+    font-size: 2rem;
+  }
+
+  main {
+    /* background-color: aqua; */
+    margin: 1em;
+  }
+
+  .timer {
+    padding: 0.2em;
+    margin: 0.5em;
+  }
+
+  .button-55, input {
+    line-height: 10px;
+    padding: 1em;
+  }
 }

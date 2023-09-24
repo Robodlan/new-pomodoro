@@ -64,6 +64,8 @@ function toggleTimer() {
  }
 
  function reset() {
+  addWorkInput.value = ''
+  addBreakInput.value = ''
     currentLabel.innerHTML = 'Work'
     audio.play()
     clearInterval(timeOut)
