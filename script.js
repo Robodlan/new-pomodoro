@@ -45,13 +45,11 @@ function lessBreak() {
   breakMinutes -= 1
   addBreakInput.value = breakMinutes
   breakTime = `${breakMinutes}` * `${breakSeconds}`
-  
 }
 
 
 function toggleTimer() {
-  addWorkInput.value = ''
-  addBreakInput.value = ''
+    addWorkInput.value = ''
     audio.play()
     if (!timeOut) {
         timeOut = setInterval(updateTime, 1000)
@@ -60,12 +58,14 @@ function toggleTimer() {
         clearInterval(timeOut)
         timeOut = null
         startStop.innerHTML = 'Resume'
+        // addWorkInput.value = workMinutes
+        breakTime
     }
  }
 
  function reset() {
-  addWorkInput.value = ''
-  addBreakInput.value = ''
+    addWorkInput.value = ''
+    addBreakInput.value = ''
     currentLabel.innerHTML = 'Work'
     audio.play()
     clearInterval(timeOut)
