@@ -18,13 +18,14 @@ main {
    display: flex;
    justify-content: center;
    align-items: center;
-   margin: 3em;
+   margin: 1em;
   }
 
 .timer {
-    max-width: 500px;
+    
+    /* max-width: 500px; */
     margin: 2em;
-    width: 100%;
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
