@@ -6,7 +6,6 @@ body {
     margin: 0;
     padding: 0;
     background-color: #fff;
-    /* background-color: orange; */
     font-family: Neucha, sans-serif;
 }
 
@@ -25,7 +24,7 @@ main {
 .timer {
     max-width: 500px;
     margin: 2em;
-    width: 80%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -125,13 +124,8 @@ input[type=number]::-webkit-outer-spin-button {
   .title {
     font-size: 2rem;
   }
- 
-  body {
-    margin: 0 auto;
-  }
 
   main {
-    /* margin: 6em; */
      margin: 0 auto;
      padding: 4em;
   }
@@ -158,9 +152,9 @@ input[type=number]::-webkit-outer-spin-button {
    } 
 
    .timer {
-    width: 100%;
-    /* padding: 2.2em; */
-    /* margin: 1.5em; */
+    width: 100vw;
+    padding: 2.2em;
+    margin: 1.5em;
   }
    
   .button-55, input {
