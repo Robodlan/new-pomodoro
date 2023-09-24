@@ -54,7 +54,7 @@ function toggleTimer() {
   addBreakInput.value = ''
     audio.play()
     if (!timeOut) {
-        timeOut = setInterval(updateTime, 100)
+        timeOut = setInterval(updateTime, 1000)
         startStop.innerHTML = 'Pause'
     } else {
         clearInterval(timeOut)
