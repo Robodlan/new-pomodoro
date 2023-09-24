@@ -19,6 +19,7 @@ main {
    justify-content: center;
    align-items: center;
    margin: 1em;
+   height: 100vh;
   }
 
 .timer {
@@ -131,10 +132,10 @@ input[type=number]::-webkit-outer-spin-button {
      padding: 4em;
   }
 
-  .timer {
+  /* .timer {
     padding: 2.2em;
     margin: 0.5em;
-  }
+  } */
 
   .button-55, input {
     line-height: 10px;
@@ -147,16 +148,16 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 4rem;
   }
 
-  main {
+  /* main { */
     /* background-color: aqua; */
-     margin: 3em; 
-   } 
+     /* margin: 3em;  */
+   /* }  */
 
-   .timer {
-    width: 100vw;
+   /* .timer {
+    
     padding: 1.2em;
     margin: 1.5em;
-  }
+  } */
    
   .button-55, input {
     line-height: 10px;
