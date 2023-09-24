@@ -33,7 +33,7 @@ function lessWork() {
 }
 
 function addBreak(){
-  currentLabel.innerHTML = "Break"
+  //  currentLabel.innerHTML = "Break"
    breakMinutes += 1
    addBreakInput.value = breakMinutes
    breakTime = `${breakMinutes}` * `${breakSeconds}`
@@ -41,7 +41,7 @@ function addBreak(){
 }
 
 function lessBreak() {
-  currentLabel.innerHTML = "Break"
+  // currentLabel.innerHTML = "Break"
   breakMinutes -= 1
   addBreakInput.value = breakMinutes
   breakTime = `${breakMinutes}` * `${breakSeconds}`
@@ -54,7 +54,7 @@ function toggleTimer() {
   addBreakInput.value = ''
     audio.play()
     if (!timeOut) {
-        timeOut = setInterval(updateTime, 1000)
+        timeOut = setInterval(updateTime, 100)
         startStop.innerHTML = 'Pause'
     } else {
         clearInterval(timeOut)
@@ -64,6 +64,7 @@ function toggleTimer() {
  }
 
  function reset() {
+    currentLabel.innerHTML = 'Work'
     audio.play()
     clearInterval(timeOut)
     timeOut = null

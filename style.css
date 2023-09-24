@@ -4,13 +4,13 @@
 
 body {
     margin: 0;
-    background-color: #987;
+    background-color: #fff;
     font-family: 'Karla', sans-serif;
 }
 
 .title {
   font-size: 5rem;
-  color: azure;
+  color: #2d2d2d;
 }
 
 main {
@@ -20,13 +20,13 @@ main {
 }
 
 .timer {
-    margin: 7rem;
+    margin: 1rem;
     width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 10em;
+    padding: 5em;
     /* From https://css.glass */
     background: rgba(255, 255, 255, 0.34);
     border-radius: 16px;
@@ -37,9 +37,12 @@ main {
 }
 
 button {
-  width: 20%;
-  padding: 1rem;
+  /* width: 50%; */
+  padding: 0 10% 0;
   font-size: 1rem;
+  background-color: #fff;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 input[type=number]::-webkit-inner-spin-button, 
