@@ -17,7 +17,7 @@ let workTime =  `${workMinutes}` * `${workSeconds}`
 let breakTime = `${breakMinutes}` * `${breakSeconds}`
 
 function addWork(){
-  if (!timeOut  ) {
+  if (!timeOut && startStop.innerHTML != 'Resume' ) {
     currentLabel.innerHTML = "Work"
      workMinutes += 1 
      addWorkInput.value = workMinutes
@@ -29,7 +29,7 @@ function addWork(){
 }
 
 function lessWork() {
-  if (!timeOut) {
+  if (!timeOut && startStop.innerHTML != 'Resume') {
     currentLabel.innerHTML = "Work"
     workMinutes -= 1
     addWorkInput.value = workMinutes
