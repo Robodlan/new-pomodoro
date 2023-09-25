@@ -5,7 +5,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #fff;
+    background-color: #F7F6F6;
     font-family: Neucha, sans-serif;
 }
 
@@ -23,7 +23,7 @@ main {
   }
 
 .timer {
-    
+    background-color: #fff;
     /* max-width: 500px; */
     margin: 2em;
     width: 100vw;
@@ -123,9 +123,18 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0; 
 }
 
-@media screen and (max-width: 480px){
-  .title {
-    font-size: 1.5rem;
+@media  (max-width: 480px){
+   .title {
+    line-height: 1px;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    background-color: antiquewhite;
+  } 
+
+  .timer-label, .time-left {
+    font-size: 3rem;
+    text-align: center;
   }
 
   .work-btn-div {

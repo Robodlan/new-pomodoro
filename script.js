@@ -17,19 +17,27 @@ let workTime =  `${workMinutes}` * `${workSeconds}`
 let breakTime = `${breakMinutes}` * `${breakSeconds}`
 
 function addWork(){
-  currentLabel.innerHTML = "Work"
-   workMinutes += 1 
-   addWorkInput.value = workMinutes
-   workTime =  `${workMinutes}` * `${workSeconds}`
-   timeLeft.textContent = formatTime(workTime)
+  if (!timeOut  ) {
+    currentLabel.innerHTML = "Work"
+     workMinutes += 1 
+     addWorkInput.value = workMinutes
+     workTime =  `${workMinutes}` * `${workSeconds}`
+     timeLeft.textContent = formatTime(workTime)
+  } else {
+   workMinutes = 25  
+ }
 }
 
 function lessWork() {
-  currentLabel.innerHTML = "Work"
-  workMinutes -= 1
-  addWorkInput.value = workMinutes
-  workTime =  `${workMinutes}` * `${workSeconds}`
-  timeLeft.textContent = formatTime(workTime)
+  if (!timeOut) {
+    currentLabel.innerHTML = "Work"
+    workMinutes -= 1
+    addWorkInput.value = workMinutes
+    workTime =  `${workMinutes}` * `${workSeconds}`
+    timeLeft.textContent = formatTime(workTime)
+  } else {
+    workMinutes
+  }
 }
 
 function addBreak(){
