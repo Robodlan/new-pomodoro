@@ -16,58 +16,74 @@ let breakSeconds = 60
 let workTime =  `${workMinutes}` * `${workSeconds}`
 let breakTime = `${breakMinutes}` * `${breakSeconds}`
 
-function addWork(){
-  if (!timeOut && startStop.innerHTML != 'Resume' ) {
-    currentLabel.innerHTML = "Work"
-     workMinutes += 1 
-     addWorkInput.value = workMinutes
-     workTime =  `${workMinutes}` * `${workSeconds}`
-     timeLeft.textContent = formatTime(workTime)
-  } else {
-   workMinutes = 25  
- }
-}
+// function addWork(){
+//   if (!timeOut && startStop.innerHTML != 'Resume' ) {
+//     currentLabel.innerHTML = "Work"
+//      workMinutes += 1 
+//      addWorkInput.value = workMinutes
+//      workTime =  `${workMinutes}` * `${workSeconds}`
+//      timeLeft.textContent = formatTime(workTime)
+//   } else {
+//    workMinutes = 25  
+//  }
+// }
 
-function lessWork() {
-  if (!timeOut && startStop.innerHTML != 'Resume') {
-    currentLabel.innerHTML = "Work"
-    workMinutes -= 1
-    addWorkInput.value = workMinutes
-    workTime =  `${workMinutes}` * `${workSeconds}`
-    timeLeft.textContent = formatTime(workTime)
-  } else {
-    workMinutes
-  }
-}
+// function lessWork() {
+//   if (!timeOut && startStop.innerHTML != 'Resume') {
+//     currentLabel.innerHTML = "Work"
+//     workMinutes -= 1
+//     addWorkInput.value = workMinutes
+//     workTime =  `${workMinutes}` * `${workSeconds}`
+//     timeLeft.textContent = formatTime(workTime)
+//   } else {
+//     workMinutes = 25
+//   }
+// }
 
-function addBreak(){
-  //  currentLabel.innerHTML = "Break"
-   breakMinutes += 1
-   addBreakInput.value = breakMinutes
-   breakTime = `${breakMinutes}` * `${breakSeconds}`
-  
-}
+// function addBreak(){
+//   if(!timeOut && startStop.innerHTML != 'Resume') { 
+//      currentLabel.innerHTML = " ⬆ Break"
+//      breakMinutes += 1
+//      addBreakInput.value = breakMinutes
+//      breakTime = `${breakMinutes}` * `${breakSeconds}`
+//      timeLeft.textContent = formatTime(breakTime)
+//   } else {
+//     currentLabel.innerHTML = "Work"
+//     timeLeft.textContent = formatTime(workTime)
+//   }
+// }
 
-function lessBreak() {
-  // currentLabel.innerHTML = "Break"
-  breakMinutes -= 1
-  addBreakInput.value = breakMinutes
-  breakTime = `${breakMinutes}` * `${breakSeconds}`
-}
+// function lessBreak() {
+//   if(!timeOut && startStop.innerHTML != 'Resume') {
+//     currentLabel.innerHTML = " ↓ Break"
+//     breakMinutes -= 1
+//     addBreakInput.value = breakMinutes
+//     breakTime = `${breakMinutes}` * `${breakSeconds}`
+//     timeLeft.textContent = formatTime(breakTime)
+//   } else {
+//     currentLabel.innerHTML = 'Work'
+//     timeLeft.textContent = formatTime(workTime)
+//   }
+// }
 
 
 function toggleTimer() {
-    addWorkInput.value = ''
-    audio.play()
-    if (!timeOut) {
-        timeOut = setInterval(updateTime, 1000)
-        startStop.innerHTML = 'Pause'
+if (!timeOut || !isRunning) {
+      audio.play()
+      isRunning = true
+      timeOut = setInterval(updateTime, 1)
+      timeLeft.textContent = formatTime(workTime) 
+      startStop.innerHTML = 'Pause'
+      currentLabel.innerHTML = 'Work'
+        addWorkInput.value = ''
+        addBreakInput.value = ''
     } else {
         clearInterval(timeOut)
         timeOut = null
         startStop.innerHTML = 'Resume'
-        // addWorkInput.value = workMinutes
-        breakTime
+        currentLabel.innerHTML = 'Work'
+        addWorkInput.value = ''
+        addBreakInput.value = ''
     }
  }
 
@@ -79,14 +95,16 @@ function toggleTimer() {
     clearInterval(timeOut)
     timeOut = null
     workTime = 25 * 60
-    timeLeft.textContent = '25:00'
+    breakTime = 5 * 60
     startStop.innerHTML = 'Start'
-}
+    timeLeft.textContent = formatTime(workTime)
+   }
 
  function updateTime() {
+  timeLeft.textContent = formatTime(workTime)
   if (isRunning) {
     workTime--
-    if (workTime < 0) {
+    if (workTime <= 0) {
       isRunning = false
       currentLabel.innerHTML = 'Break'
       timeLeft.textContent = formatTime(breakTime)
@@ -97,10 +115,10 @@ function toggleTimer() {
       isRunning = false
       currentLabel.innerHTML = 'Done!'
       startStop.innerHTML = 'Start'
-      timeLeft.textContent = formatTime(workTime)
       clearInterval(timeOut)
-      lastAlert.play()
-    }
+      // lastAlert.play()
+      document.getElementById('start-stop').disabled
+    } 
   }
   timeLeft.textContent = formatTime(isRunning ? workTime : breakTime)
   document.title = `${formatTime(isRunning ? workTime : breakTime)} ${'🍅'}`
@@ -114,10 +132,10 @@ function formatTime(seconds) {
 
  document.getElementById('start-stop').addEventListener('click', toggleTimer)
  document.getElementById('reset').addEventListener('click', reset)
- document.getElementById('add-work-btn').addEventListener('click', addWork)
- document.getElementById('less-work-btn').addEventListener('click', lessWork)
- document.getElementById('add-break-btn').addEventListener('click', addBreak)
- document.getElementById('less-break-btn').addEventListener('click', lessBreak)
+//  document.getElementById('add-work-btn').addEventListener('click', addWork)
+//  document.getElementById('less-work-btn').addEventListener('click', lessWork)
+//  document.getElementById('add-break-btn').addEventListener('click', addBreak)
+//  document.getElementById('less-break-btn').addEventListener('click', lessBreak)
 
 
  
