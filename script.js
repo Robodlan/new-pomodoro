@@ -81,7 +81,7 @@ if (!timeOut || !isRunning) {
       breakMinutes = 5
       audio.play()
       isRunning = true
-      timeOut = setInterval(updateTime, 10)
+      timeOut = setInterval(updateTime, 1000)
       timeLeft.textContent = formatTime(workTime) 
       startStop.innerHTML = 'Pause'
       currentLabel.innerHTML = 'Work'
