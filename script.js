@@ -91,9 +91,7 @@ if (!timeOut || !isRunning) {
         clearInterval(timeOut)
         timeOut = null
         startStop.innerHTML = 'Resume'
-        // currentLabel.innerHTML = 'Work'
-        // addWorkInput.value = ''
-        // addBreakInput.value = ''
+        currentLabel.innerHTML = 'Work'
     }
  }
 
@@ -124,8 +122,10 @@ if (!timeOut || !isRunning) {
     if (workTime <= 0) {
       isRunning = false
       currentLabel.innerHTML = 'Break'
+      startStop.innerHTML = 'We are resting'
+      startStop.setAttribute('disabled', '')
       timeLeft.textContent = formatTime(breakTime)
-    }
+    } 
   } else {
     breakTime--
     if (breakTime <= 0){
