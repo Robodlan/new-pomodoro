@@ -80,7 +80,7 @@ if (!timeOut || currentLabel.innerHTML === 'Done') {
       breakMinutes = 5
       audio.play()
       isRunning = true
-      timeOut = setInterval(updateTime, 1)
+      timeOut = setInterval(updateTime, 1000)
       timeLeft.textContent = formatTime(workTime) 
       startStop.innerHTML = 'Pause'
       currentLabel.innerHTML = 'Work'
@@ -127,18 +127,18 @@ if (!timeOut || currentLabel.innerHTML === 'Done') {
     } 
   } else {
     breakTime--
+    // lastAlert.play()
     if (breakTime <= 0){
-      lastAlert.play()
       isRunning = false
       currentLabel.innerHTML = 'Done!'
       startStop.innerHTML = 'Start'
       clearInterval(timeOut)
       startStop.innerHTML = 'Press Reset'
       startStop.setAttribute('disabled', '')
-      lastAlert.play()
+      lastAlert.play()    
     } 
   }
-  // lastAlert.play()
+  
   timeLeft.textContent = formatTime(isRunning ? workTime : breakTime)
   document.title = `${formatTime(isRunning ? workTime : breakTime)} ${'🍅'}`
 }  

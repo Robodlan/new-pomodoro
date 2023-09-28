@@ -190,3 +190,129 @@ input[type=number]::-webkit-outer-spin-button {
       align-items: center;
     }
 }  
+
+@media screen and ((min-width: 769px) and (max-width: 1024px)) {
+  .timer-label, .time-left {
+    font-size: 4rem;
+    text-align: center;
+    color: #F7F6F6;
+  } 
+  .name {
+    font-size: 2rem;
+  }
+   .title {
+    max-width: 500px;
+    width: 90%;
+    box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+   }
+  
+
+  .start-reset-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.4em;
+  }
+  
+  .button-55 {
+    font-size: 2rem;
+    padding: 0.7em;
+    margin: 0.1em;
+  }
+  .work-btn-div, .break-btn-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and ((min-width: 1024px) and (max-width: 1280px)) {
+  .timer-label, .time-left {
+    font-size: 4rem;
+    text-align: center;
+    color: #F7F6F6;
+  } 
+  .name {
+    font-size: 2rem;
+  }
+   .title {
+    max-width: 500px;
+    width: 90%;
+    box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+   }
+  
+
+  .start-reset-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.4em;
+  }
+  
+  .button-55 {
+    font-size: 2rem;
+    padding: 0.7em;
+    margin: 0.1em;
+  }
+  .work-btn-div, .break-btn-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .timer-label, .time-left {
+    font-size: 4rem;
+    text-align: center;
+    color: #F7F6F6;
+  } 
+  .name {
+    font-size: 2rem;
+  }
+  main {
+    margin: 0 auto;
+    max-width: 700px;
+  }
+   .title {
+    width: 90%;
+    box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+   }
+
+  .start-reset-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.4em;
+  }
+  
+  .button-55 {
+    font-size: 2rem;
+    padding: 0.7em;
+    margin: 0.1em;
+    border-style: solid;
+  }
+  .work-btn-div, .break-btn-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
