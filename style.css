@@ -127,7 +127,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 @media screen and  (max-width: 480px){
   .timer-label, .time-left {
-    font-size: 2rem;
+    font-size: 1rem;
     text-align: center;
   }
   .timer {
