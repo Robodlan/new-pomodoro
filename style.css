@@ -150,12 +150,15 @@ input[type=number]::-webkit-outer-spin-button {
   } 
 
   .start-reset-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 0.4em;
   }
   
   .button-55 {
     font-size: 2rem;
-    padding: 2em;
+    /* padding: 2em; */
   }
   .work-btn-div, .break-btn-div {
     display: flex;
