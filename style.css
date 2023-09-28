@@ -18,7 +18,6 @@ h2, h3 {
 }
 
 .title {
-  font-size: 5rem;
   color: #F7F6F6;
   background-color: #41403e;
 }
@@ -104,19 +103,23 @@ input[type=number]::-webkit-outer-spin-button {
 } */
 
 
-@media screen and  (max-width: 480px){
+@media (max-width: 480px){
   .timer-label, .time-left {
     font-size: 2rem;
     text-align: center;
     color: #F7F6F6;
   }
+  .name {
+    font-size: 1rem;
+  }
   .timer {
-    /* width: 100%; */
+    width: 90%;
     margin: 0 auto;
+    height: 100vh;
   }
   .title {
-    width: 100%;
-    padding: 0.6em;
+    width: 90%;
+    padding: 1em;
     /* background-color: #41403e; */
     box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
     transition: all 235ms ease-in-out;
@@ -131,12 +134,13 @@ input[type=number]::-webkit-outer-spin-button {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 0.4em;
+    margin-top: 1em;
   }
   
   .button-55 {
     font-size: 2rem;
-    /* padding: 2em; */
+    padding: 0.5em;
+    margin: 0.1em;
   }
   .work-btn-div, .break-btn-div {
     display: flex;
@@ -145,18 +149,44 @@ input[type=number]::-webkit-outer-spin-button {
     /* flex-direction: column; */
   }
 
-  input {
-    width: 50%;
-    /* padding: 1rem 0; */
-    font-size: 2rem;
-    color: #41403e;
-  }
 }
 
-  @media screen and  (max-width: 768px){
+  @media screen and ((min-width: 481px) and (max-width: 768px)){
     .timer-label, .time-left {
-      font-size: 5rem;
+      font-size: 6rem;
       text-align: center;
       color: #F7F6F6;
+    } 
+    .name {
+      font-size: 2rem;
+    }
+     .title {
+      width: 90%;
+      box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+      transition: all 235ms ease-in-out;
+      border-bottom-left-radius: 15px 255px;
+      border-bottom-right-radius: 225px 15px;
+      border-top-left-radius: 255px 15px;
+      border-top-right-radius: 15px 225px;
+      border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+     }
+    
+
+    .start-reset-div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 0.4em;
+    }
+    
+    .button-55 {
+      font-size: 3rem;
+      padding: 0.7em;
+      margin: 0.1em;
+    }
+    .work-btn-div, .break-btn-div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 }  
