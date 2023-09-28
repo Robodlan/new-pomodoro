@@ -6,13 +6,12 @@ const addBreakBtn = document.getElementById('add-break-btn')
 const lessBreakBtn = document.getElementById('less-break-btn')
 const addWorkInput = document.getElementById('add-work')
 const addBreakInput = document.getElementById('add-break')
-let currentLabel = document.getElementById('timer-label')
-let audio = new Audio('click.mp3')
-let lastAlert = new Audio('chimes.mp3')
+const currentLabel = document.getElementById('timer-label')
+const audio = new Audio('click.mp3')
+const lastAlert = new Audio('chimes.mp3')
 
 let timeOut
 let isRunning = true
-let add = 1 * 60
 let workMinutes = 25
 let workSeconds = 60
 let breakMinutes = 5
@@ -22,7 +21,7 @@ let breakTime = `${breakMinutes}` * `${breakSeconds}`
 
 function addWork(){
   if (!timeOut ) {
-     currentLabel.innerHTML = "Work"
+     currentLabel.innerHTML = "+ Work"
      workMinutes += 1 
      addWorkInput.value = workMinutes
      workTime =  `${workMinutes}` * `${workSeconds}`
@@ -34,7 +33,7 @@ function addWork(){
 
 function lessWork() {
   if (!timeOut && startStop.innerHTML != 'Resume') {
-    currentLabel.innerHTML = "Work"
+    currentLabel.innerHTML = "- Work"
     workMinutes -= 1
     addWorkInput.value = workMinutes
     workTime =  `${workMinutes}` * `${workSeconds}`
@@ -46,7 +45,7 @@ function lessWork() {
 
 function addBreak(){
   if(!timeOut && startStop.innerHTML != 'Resume') { 
-     currentLabel.innerHTML = " ⬆ Break"
+     currentLabel.innerHTML = " + Break"
      breakMinutes += 1
      addBreakInput.value = breakMinutes
      breakTime = `${breakMinutes}` * `${breakSeconds}`
@@ -59,7 +58,7 @@ function addBreak(){
 
 function lessBreak() {
   if(!timeOut && startStop.innerHTML != 'Resume') {
-    currentLabel.innerHTML = " ↓ Break"
+    currentLabel.innerHTML = " - Break"
     breakMinutes -= 1
     addBreakInput.value = breakMinutes
     breakTime = `${breakMinutes}` * `${breakSeconds}`
@@ -81,7 +80,7 @@ if (!timeOut || currentLabel.innerHTML === 'Done') {
       breakMinutes = 5
       audio.play()
       isRunning = true
-      timeOut = setInterval(updateTime, 10)
+      timeOut = setInterval(updateTime, 1000)
       timeLeft.textContent = formatTime(workTime) 
       startStop.innerHTML = 'Pause'
       currentLabel.innerHTML = 'Work'
@@ -133,7 +132,7 @@ if (!timeOut || currentLabel.innerHTML === 'Done') {
       currentLabel.innerHTML = 'Done!'
       startStop.innerHTML = 'Start'
       clearInterval(timeOut)
-      // lastAlert.play()
+      lastAlert.play()
       startStop.innerHTML = 'Press Reset'
       startStop.setAttribute('disabled', '')
     } 
