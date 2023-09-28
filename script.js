@@ -80,7 +80,7 @@ if (!timeOut || currentLabel.innerHTML === 'Done') {
       breakMinutes = 5
       audio.play()
       isRunning = true
-      timeOut = setInterval(updateTime, 1000)
+      timeOut = setInterval(updateTime, 1)
       timeLeft.textContent = formatTime(workTime) 
       startStop.innerHTML = 'Pause'
       currentLabel.innerHTML = 'Work'
@@ -128,11 +128,11 @@ if (!timeOut || currentLabel.innerHTML === 'Done') {
   } else {
     breakTime--
     if (breakTime <= 0){
+      lastAlert.play()
       isRunning = false
       currentLabel.innerHTML = 'Done!'
       startStop.innerHTML = 'Start'
       clearInterval(timeOut)
-      lastAlert.play()
       startStop.innerHTML = 'Press Reset'
       startStop.setAttribute('disabled', '')
     } 
