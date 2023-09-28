@@ -76,12 +76,12 @@ function toggleTimer() {
   lessWorkBtn.setAttribute('disabled', '')
   addBreakBtn.setAttribute('disabled', '')
   lessBreakBtn.setAttribute('disabled', '')
-if (!timeOut || !isRunning) {
+if (!timeOut || currentLabel.innerHTML === 'Done') {
       workMinutes = 25
       breakMinutes = 5
       audio.play()
       isRunning = true
-      timeOut = setInterval(updateTime, 1000)
+      timeOut = setInterval(updateTime, 10)
       timeLeft.textContent = formatTime(workTime) 
       startStop.innerHTML = 'Pause'
       currentLabel.innerHTML = 'Work'
@@ -91,7 +91,7 @@ if (!timeOut || !isRunning) {
         clearInterval(timeOut)
         timeOut = null
         startStop.innerHTML = 'Resume'
-        currentLabel.innerHTML = 'Work'
+        currentLabel.innerHTML = 'Pause'
     }
  }
 
@@ -123,7 +123,7 @@ if (!timeOut || !isRunning) {
       isRunning = false
       currentLabel.innerHTML = 'Break'
       startStop.innerHTML = 'We are resting'
-      startStop.setAttribute('disabled', '')
+      // startStop.setAttribute('disabled', '')
       timeLeft.textContent = formatTime(breakTime)
     } 
   } else {
@@ -133,7 +133,7 @@ if (!timeOut || !isRunning) {
       currentLabel.innerHTML = 'Done!'
       startStop.innerHTML = 'Start'
       clearInterval(timeOut)
-      lastAlert.play()
+      // lastAlert.play()
       startStop.innerHTML = 'Press Reset'
       startStop.setAttribute('disabled', '')
     } 
