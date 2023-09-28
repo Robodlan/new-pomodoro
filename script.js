@@ -135,8 +135,10 @@ if (!timeOut || currentLabel.innerHTML === 'Done') {
       clearInterval(timeOut)
       startStop.innerHTML = 'Press Reset'
       startStop.setAttribute('disabled', '')
+      lastAlert.play()
     } 
   }
+  // lastAlert.play()
   timeLeft.textContent = formatTime(isRunning ? workTime : breakTime)
   document.title = `${formatTime(isRunning ? workTime : breakTime)} ${'🍅'}`
 }  
