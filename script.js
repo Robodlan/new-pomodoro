@@ -4,8 +4,8 @@ const addWorkBtn = document.getElementById('add-work-btn')
 const lessWorkBtn = document.getElementById('less-work-btn')
 const addBreakBtn = document.getElementById('add-break-btn')
 const lessBreakBtn = document.getElementById('less-break-btn')
-const addWorkInput = document.getElementById('add-work')
-const addBreakInput = document.getElementById('add-break')
+// const addWorkInput = document.getElementById('add-work')
+// const addBreakInput = document.getElementById('add-break')
 const currentLabel = document.getElementById('timer-label')
 const audio = new Audio('click.mp3')
 const lastAlert = new Audio('chimes.mp3')
@@ -23,7 +23,7 @@ function addWork(){
   if (!timeOut ) {
      currentLabel.innerHTML = "+ Work"
      workMinutes += 1 
-     addWorkInput.value = workMinutes
+    //  addWorkInput.value = workMinutes
      workTime =  `${workMinutes}` * `${workSeconds}`
      timeLeft.textContent = formatTime(workTime)
   } else {
@@ -35,7 +35,7 @@ function lessWork() {
   if (!timeOut && startStop.innerHTML != 'Resume') {
     currentLabel.innerHTML = "- Work"
     workMinutes -= 1
-    addWorkInput.value = workMinutes
+    // addWorkInput.value = workMinutes
     workTime =  `${workMinutes}` * `${workSeconds}`
     timeLeft.textContent = formatTime(workTime)
   } else {
@@ -47,7 +47,7 @@ function addBreak(){
   if(!timeOut && startStop.innerHTML != 'Resume') { 
      currentLabel.innerHTML = " + Break"
      breakMinutes += 1
-     addBreakInput.value = breakMinutes
+    //  addBreakInput.value = breakMinutes
      breakTime = `${breakMinutes}` * `${breakSeconds}`
      timeLeft.textContent = formatTime(breakTime)
   } else {
@@ -60,7 +60,7 @@ function lessBreak() {
   if(!timeOut && startStop.innerHTML != 'Resume') {
     currentLabel.innerHTML = " - Break"
     breakMinutes -= 1
-    addBreakInput.value = breakMinutes
+    // addBreakInput.value = breakMinutes
     breakTime = `${breakMinutes}` * `${breakSeconds}`
     timeLeft.textContent = formatTime(breakTime)
   } else {
@@ -84,8 +84,8 @@ if (!timeOut || currentLabel.innerHTML === 'Done') {
       timeLeft.textContent = formatTime(workTime) 
       startStop.innerHTML = 'Pause'
       currentLabel.innerHTML = 'Work'
-      addWorkInput.value = ''
-      addBreakInput.value = ''
+      // addWorkInput.value = ''
+      // addBreakInput.value = ''
     } else {
         clearInterval(timeOut)
         timeOut = null
@@ -102,8 +102,8 @@ if (!timeOut || currentLabel.innerHTML === 'Done') {
     lessWorkBtn.removeAttribute('disabled', '')
     addBreakBtn.removeAttribute('disabled', '')
     lessBreakBtn.removeAttribute('disabled', '')
-    addWorkInput.value = ''
-    addBreakInput.value = ''
+    // addWorkInput.value = ''
+    // addBreakInput.value = ''
     currentLabel.innerHTML = 'Work'
     audio.play()
     clearInterval(timeOut)

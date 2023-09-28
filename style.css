@@ -154,7 +154,14 @@ input[type=number]::-webkit-outer-spin-button {
   }
   
   .button-55 {
-    font-size: 1.3rem;
+    font-size: 2rem;
+    padding: 2em;
+  }
+  .work-btn-div, .break-btn-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* flex-direction: column; */
   }
 
   input {
