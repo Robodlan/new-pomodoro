@@ -234,6 +234,7 @@ input[type=number]::-webkit-outer-spin-button {
   } 
   .name {
     font-size: 2rem;
+    background-color: blue;
   }
    .title {
     max-width: 500px;
