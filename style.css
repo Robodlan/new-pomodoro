@@ -148,7 +148,7 @@ input[type=number]::-webkit-outer-spin-button {
     .timer-label, .time-left {
       font-size: 4rem;
       text-align: center;
-      color: #F7F6F6;
+      color: #41403e;
     } 
     .name {
       font-size: 2rem;
