@@ -9,6 +9,7 @@ const lessBreakBtn = document.getElementById('less-break-btn')
 const currentLabel = document.getElementById('timer-label')
 const audio = new Audio('click.mp3')
 const lastAlert = new Audio('chimes.mp3')
+lastAlert.autoplay = true
 
 let timeOut
 let isRunning = true
@@ -80,7 +81,7 @@ if (!timeOut || currentLabel.innerHTML === 'Done') {
       breakMinutes = 5
       audio.play()
       isRunning = true
-      timeOut = setInterval(updateTime, 1000)
+      timeOut = setInterval(updateTime, 10)
       timeLeft.textContent = formatTime(workTime) 
       startStop.innerHTML = 'Pause'
       currentLabel.innerHTML = 'Work'
