@@ -9,7 +9,7 @@ const lessBreakBtn = document.getElementById('less-break-btn')
 const currentLabel = document.getElementById('timer-label')
 const audio = new Audio('click.mp3')
 const lastAlert = new Audio('chimes.mp3')
-lastAlert.autoplay = true
+// lastAlert.autoplay = true
 
 let timeOut
 let isRunning = true
@@ -133,10 +133,10 @@ if (!timeOut || currentLabel.innerHTML === 'Done') {
       isRunning = false
       currentLabel.innerHTML = 'Done!'
       startStop.innerHTML = 'Start'
+      lastAlert.play().autoplay = true    
       clearInterval(timeOut)
       startStop.innerHTML = 'Press Reset'
       startStop.setAttribute('disabled', '')
-      lastAlert.play()    
     } 
   }
   
