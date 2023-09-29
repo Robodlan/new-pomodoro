@@ -186,13 +186,13 @@ input[type=number]::-webkit-outer-spin-button {
 
 @media only screen and ((min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape)) {
   .timer-label, .time-left {
-    background-color: red;
     font-size: 4rem;
     text-align: center;
     color: #F7F6F6;
   } 
   .name {
     font-size: 2rem;
+    background-color: red;
   }
    .title {
     max-width: 500px;
