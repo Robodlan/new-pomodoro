@@ -152,6 +152,7 @@ input[type=number]::-webkit-outer-spin-button {
     } 
     .name {
       font-size: 2rem;
+      color: yellow;
     }
      .title {
       width: 90%;
@@ -193,6 +194,7 @@ input[type=number]::-webkit-outer-spin-button {
   .name {
     font-size: 2rem;
     background-color: red;
+    color: red;
   }
    .title {
     max-width: 500px;
@@ -235,6 +237,7 @@ input[type=number]::-webkit-outer-spin-button {
   .name {
     font-size: 2rem;
     background-color: blue;
+    color: blue;
   }
    .title {
     max-width: 500px;
