@@ -136,7 +136,7 @@ if (!timeOut || currentLabel.innerHTML === 'Done') {
       isRunning = false
       currentLabel.innerHTML = 'Done!'
       startStop.innerHTML = 'Start'
-      setTimeout(playAudio, 1)      
+      setTimeout(playAudio, 1000)      
       clearInterval(timeOut)
       startStop.innerHTML = 'Press Reset'
       startStop.setAttribute('disabled', '')
