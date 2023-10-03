@@ -138,7 +138,7 @@ if (!timeOut || currentLabel.innerHTML === 'Done') {
       clearInterval(timeOut)
       startStop.innerHTML = 'Press Reset'
       startStop.setAttribute('disabled', '')
-      if (!timeOut) {
+      if (breakTime === 0) {
         document.getElementById('last-alert').play()
       }
     } 
