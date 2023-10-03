@@ -1,4 +1,3 @@
-const audioPlay = document.getElementById('audio')
 const timeLeft = document.getElementById('time-left')
 const startStop = document.getElementById('start-stop')
 const addWorkBtn = document.getElementById('add-work-btn')
@@ -9,8 +8,11 @@ const lessBreakBtn = document.getElementById('less-break-btn')
 // const addBreakInput = document.getElementById('add-break')
 const currentLabel = document.getElementById('timer-label')
 const audio = new Audio('click.mp3')
-// const lastAlert = new Audio('chimes.mp3')
-// lastAlert.autoplay = true
+const lastAlert = new Audio('chimes.mp3')
+function playAudio(){
+  lastAlert.play()
+}  
+
 
 let timeOut
 let isRunning = true
@@ -134,17 +136,14 @@ if (!timeOut || currentLabel.innerHTML === 'Done') {
       isRunning = false
       currentLabel.innerHTML = 'Done!'
       startStop.innerHTML = 'Start'
-      playAudio()
-      // lastAlert.play()
+      setTimeout(playAudio, 1)      
       clearInterval(timeOut)
       startStop.innerHTML = 'Press Reset'
       startStop.setAttribute('disabled', '')
     } 
   }
 
-  function playAudio(){
-   audioPlay.play()    
- }  
+
   timeLeft.textContent = formatTime(isRunning ? workTime : breakTime)
   document.title = `${formatTime(isRunning ? workTime : breakTime)} ${'🍅'}`
 }  
