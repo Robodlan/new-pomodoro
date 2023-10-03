@@ -142,9 +142,7 @@ if (!timeOut || currentLabel.innerHTML === 'Done') {
       startStop.setAttribute('disabled', '')
     } 
   }
-
-
-  timeLeft.textContent = formatTime(isRunning ? workTime : breakTime)
+   timeLeft.textContent = formatTime(isRunning ? workTime : breakTime)
   document.title = `${formatTime(isRunning ? workTime : breakTime)} ${'🍅'}`
 }  
 
