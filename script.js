@@ -134,11 +134,13 @@ if (!timeOut || currentLabel.innerHTML === 'Done') {
       isRunning = false
       currentLabel.innerHTML = 'Done!'
       startStop.innerHTML = 'Start'
-      document.getElementById('last-alert').play()
       // alert('Thank You')
       clearInterval(timeOut)
       startStop.innerHTML = 'Press Reset'
       startStop.setAttribute('disabled', '')
+      if (!timeOut) {
+        document.getElementById('last-alert').play()
+      }
     } 
   }
    timeLeft.textContent = formatTime(isRunning ? workTime : breakTime)
