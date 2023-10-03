@@ -1,3 +1,4 @@
+const audioPlay = document.getElementById('audio')
 const timeLeft = document.getElementById('time-left')
 const startStop = document.getElementById('start-stop')
 const addWorkBtn = document.getElementById('add-work-btn')
@@ -8,7 +9,7 @@ const lessBreakBtn = document.getElementById('less-break-btn')
 // const addBreakInput = document.getElementById('add-break')
 const currentLabel = document.getElementById('timer-label')
 const audio = new Audio('click.mp3')
-const lastAlert = new Audio('chimes.mp3')
+// const lastAlert = new Audio('chimes.mp3')
 // lastAlert.autoplay = true
 
 let timeOut
@@ -81,7 +82,7 @@ if (!timeOut || currentLabel.innerHTML === 'Done') {
       breakMinutes = 5
       audio.play()
       isRunning = true
-      timeOut = setInterval(updateTime, 1000)
+      timeOut = setInterval(updateTime, 10)
       timeLeft.textContent = formatTime(workTime) 
       startStop.innerHTML = 'Pause'
       currentLabel.innerHTML = 'Work'
@@ -113,6 +114,7 @@ if (!timeOut || currentLabel.innerHTML === 'Done') {
     breakTime = 5 * 60
     startStop.innerHTML = 'Start'
     timeLeft.textContent = formatTime(workTime)
+    document.title = `${formatTime(isRunning ? workTime : breakTime)} ${'🍅'}`
    }
 
  function updateTime() {
@@ -123,7 +125,6 @@ if (!timeOut || currentLabel.innerHTML === 'Done') {
       isRunning = false
       currentLabel.innerHTML = 'Break'
       startStop.innerHTML = 'We are resting'
-      // startStop.setAttribute('disabled', '')
       timeLeft.textContent = formatTime(breakTime)
     } 
   } else {
@@ -133,13 +134,17 @@ if (!timeOut || currentLabel.innerHTML === 'Done') {
       isRunning = false
       currentLabel.innerHTML = 'Done!'
       startStop.innerHTML = 'Start'
-      lastAlert.play().autoplay = true    
+      playAudio()
+      // lastAlert.play()
       clearInterval(timeOut)
       startStop.innerHTML = 'Press Reset'
       startStop.setAttribute('disabled', '')
     } 
   }
-  
+
+  function playAudio(){
+   audioPlay.play()    
+ }  
   timeLeft.textContent = formatTime(isRunning ? workTime : breakTime)
   document.title = `${formatTime(isRunning ? workTime : breakTime)} ${'🍅'}`
 }  
