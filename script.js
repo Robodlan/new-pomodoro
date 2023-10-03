@@ -131,6 +131,7 @@ if (!timeOut || currentLabel.innerHTML === 'Done') {
     } 
   } else {
     breakTime--
+    lastAlert.play()
     // lastAlert.play()
     if (breakTime <= 0){
       isRunning = false
